@@ -24,13 +24,15 @@ import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ProcessosListComponent } from './components/processos/processos-list/processos-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProcessosListComponent
   ],
   imports: [
     AppRoutingModule,
