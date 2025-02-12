@@ -31,4 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 npm install -g @angular/cli@16.2.16
 
 #versão do node
-18.19.0
+nvm instal 18.19.0
+
+#Material instalado
+ng add @angular/material
