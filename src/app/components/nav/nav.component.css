@@ -1,0 +1,31 @@
+.container {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sidenav-content {
+    display: flex;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidenav-content {
+    width: 5rem;
+    color:  gray;    
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item mat-icon {
+    margin-right: 8px;
+    margin-bottom: -5px;
+}
+
+.sidenav a {
+    color: gray;
+margin-top: 0px;
+}
