@@ -1,11 +1,11 @@
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
         <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="/home" class="nav-item">
+            <a mat-list-item routerLink="home" class="nav-item">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
                 <span>Todos</span>
             </a>
-            <a mat-list-item routerLink="/cadastrar" class="nav-item">
+            <a mat-list-item routerLink="/" class="nav-item">
                 <mat-icon aria-hidden="false" aria-label="Example user icon" fontIcon="account_circle"></mat-icon>
                 <span>Cadastrar</span>
             </a>
@@ -13,6 +13,7 @@
     </mat-drawer>
 
     <div class="sidenav-content">
+<app-header></app-header>
         <button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
             <mat-icon>menu</mat-icon>
         </button>
