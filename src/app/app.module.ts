@@ -35,6 +35,7 @@ import { ProcessosCreateComponent } from './components/processos/processos-creat
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ProcessosUpdateComponent } from './components/processos/processos-update/processos-update.component';
+import { ProcessosDeleteComponent } from './components/processos-delete/processos-delete.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProcessosUpdateComponent } from './components/processos/processos-updat
     HeaderComponent,
     ProcessosListComponent,
     ProcessosCreateComponent,
-    ProcessosUpdateComponent
+    ProcessosUpdateComponent,
+    ProcessosDeleteComponent
   ],
   imports: [
     ReactiveFormsModule,
