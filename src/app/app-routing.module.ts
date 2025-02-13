@@ -3,13 +3,15 @@ import { Routes, RouterModule  } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProcessosListComponent } from './components/processos/processos-list/processos-list.component';
+import { ProcessosCreateComponent } from './components/processos/processos-create/processos-create.component';
 
 
 const routes: Routes = [
   {
     path: '', component: NavComponent, children: [
       { path: 'home', component: HomeComponent },
-      { path: 'processos', component: ProcessosListComponent }
+      { path: 'processos', component: ProcessosListComponent },
+      { path: 'processos/create', component: ProcessosCreateComponent }
     ]
   }
 ];
