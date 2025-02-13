@@ -1,5 +1,5 @@
 <div class="container mat-elevation-z8">
-    <form [formGroup]="processoForm" (ngSubmit)="create()">
+    <form [formGroup]="processoForm" (ngSubmit)="atualizar()">
         <h1>Cadastrar Processo</h1>
 
         <p>
@@ -29,16 +29,15 @@
             </mat-form-field>
         </p>
 
-        <p>
+        <!--<p>
             <input #fileInput type="file" (change)="onFileSelected($event)" hidden>
             <button mat-raised-button color="primary" (click)="fileInput.click()">
                 <mat-icon>attach_file</mat-icon> Escolher Arquivo
             </button>
-            <span *ngIf="fileName">{{ fileName }}</span>
-        </p>
+        </p>-->
 
 
-        <button [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Cadastrar</button>
-        <button routerLink="../" type="button" class="fullWidth" mat-raised-button color="warn">Cancelar</button>
+        <button [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Atualizar</button>
+        <button routerLink="../../" type="button" class="fullWidth" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>

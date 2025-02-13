@@ -3,41 +3,48 @@ import { FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors
 import { ProcessosService } from 'src/app/services/processos.service';
 import { Processo } from '../../../models/processo';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-processos-create',
-  templateUrl: './processos-create.component.html',
-  styleUrls: ['./processos-create.component.css']
+  selector: 'app-processos-update',
+  templateUrl: './processos-update.component.html',
+  styleUrls: ['./processos-update.component.css']
 })
-export class ProcessosCreateComponent implements OnInit {
+export class ProcessosUpdateComponent implements OnInit {
 
+  processo: Processo;
   processoForm: FormGroup;
-  
-  fileName: string = '';
 
   constructor(
     private service: ProcessosService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    
     this.processoForm = new FormGroup({
+      id: new FormControl(null),
       npu: new FormControl(null, [Validators.required, npuValidator()]),
       municipio: new FormControl(null, Validators.required),
       uf: new FormControl(null, Validators.required),
       documentoPath: new FormControl(null)
     });
+    
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.processoForm.patchValue({ id: id });
+      this.getProcessoById(id);
+    }
   }
 
-  create(): void {
+  atualizar(): void {
     if (this.processoForm.valid) {
       const processo: Processo = this.processoForm.value;
-      this.service.create(processo).subscribe({
+      this.service.atualizar(processo).subscribe({
         next: () => {
-          this.toastr.success('Processo criado com sucesso!', 'Sucesso');
+          this.toastr.success('Processo atualizado com sucesso!', 'Sucesso');
           this.router.navigate(['/processos']);
         },
         error: (ex) => {
@@ -53,13 +60,19 @@ export class ProcessosCreateComponent implements OnInit {
       });
     }
   }
+  
+  getProcessoById(id: string): void {
+    this.service.getProcessoById(id).subscribe(resposta => {
+      this.processoForm.patchValue(resposta);
+    });
+  }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      this.fileName = file.name;
       this.processoForm.patchValue({ documentoPath: file });
+      console.log('Arquivo selecionado:', file);
     }
   }
 
@@ -74,4 +87,6 @@ export function npuValidator(): ValidatorFn {
     const valid = /^[0-9]{7}-[0-9]{2}\.[0-9]{4}\.[0-9]\.[0-9]{2}\.[0-9]{4}$/.test(control.value);
     return valid ? null : { invalidNpu: true };
   };
+} {
+
 }

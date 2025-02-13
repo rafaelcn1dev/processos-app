@@ -1,0 +1,25 @@
+.container {
+    width: 25rem;
+    margin: auto;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: .6rem;
+    margin-bottom: 12rem;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin-top: .5rem;
+}
+
+span {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #333;
+}

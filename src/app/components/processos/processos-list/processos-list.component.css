@@ -15,3 +15,11 @@ mat-form-field {
 button {
  width: 100%;
 }
+
+.edit {
+    color: rgb(39, 134, 211);    
+}
+
+.delete {
+    color: rgb(192, 26, 67);
+}

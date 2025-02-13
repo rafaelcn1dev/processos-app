@@ -1,6 +1,7 @@
 import { Processo } from './processo';
 
 export interface ProcessoResponse {
+    id: any;
     content: Processo[];
     pageable: any;
     last: boolean;

@@ -34,6 +34,7 @@ import { ProcessosCreateComponent } from './components/processos/processos-creat
 
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { ProcessosUpdateComponent } from './components/processos/processos-update/processos-update.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
     NavComponent,
     HeaderComponent,
     ProcessosListComponent,
-    ProcessosCreateComponent
+    ProcessosCreateComponent,
+    ProcessosUpdateComponent
   ],
   imports: [
     ReactiveFormsModule,

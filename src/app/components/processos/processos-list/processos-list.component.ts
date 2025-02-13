@@ -14,7 +14,7 @@ export class ProcessosListComponent implements OnInit {
   
   ELEMENT_DATA: Processo[] = [];
   
-  displayedColumns: string[] = ['npu', 'dataCadastro', 'dataVisualizacao', 'municipio', 'uf', 'documentoPath'];
+  displayedColumns: string[] = ['npu', 'dataCadastro', 'dataVisualizacao', 'municipio', 'uf', 'documentoPath', 'acoes'];
   dataSource = new MatTableDataSource<Processo>(this.ELEMENT_DATA);
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
