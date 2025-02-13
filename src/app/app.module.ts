@@ -27,6 +27,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProcessosListComponent } from './components/processos/processos-list/processos-list.component';
+import { ProcessosCreateComponent } from './components/processos/processos-create/processos-create.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProcessosListComponent } from './components/processos/processos-list/pr
     HomeComponent,
     NavComponent,
     HeaderComponent,
-    ProcessosListComponent
+    ProcessosListComponent,
+    ProcessosCreateComponent
   ],
   imports: [
     HttpClientModule,
