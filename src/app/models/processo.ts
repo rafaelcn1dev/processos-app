@@ -1,5 +1,5 @@
 export interface Processo {
-    npu: number;
+    npu: string;
     municipio: string;
     uf: string;
     dataVisualizacao: any;

@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -29,6 +32,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProcessosListComponent } from './components/processos/processos-list/processos-list.component';
 import { ProcessosCreateComponent } from './components/processos/processos-create/processos-create.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +45,7 @@ import { ProcessosCreateComponent } from './components/processos/processos-creat
     ProcessosCreateComponent
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserModule,
@@ -56,9 +63,17 @@ import { ProcessosCreateComponent } from './components/processos/processos-creat
     MatTableModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    ToastrModule.forRoot(),
+    NgxMaskDirective,
+    NgxMaskPipe,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      progressBar: true
+    })
+    
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

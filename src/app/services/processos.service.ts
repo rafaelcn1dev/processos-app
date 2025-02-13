@@ -19,4 +19,15 @@ export class ProcessosService {
     return this.http.get<ProcessoResponse>(`${this.baseUrl}/processos`);
   }
   
+  create(processo: Processo): Observable<Processo> {
+    const formData = new FormData();
+    formData.append('npu', processo.npu);
+    formData.append('municipio', processo.municipio);
+    formData.append('uf', processo.uf);
+    if (processo.documentoPath) {
+      formData.append('documentoPath', processo.documentoPath);
+    }
+    return this.http.post<Processo>(`${this.baseUrl}/processos`, formData);
+  }
+  
 }
