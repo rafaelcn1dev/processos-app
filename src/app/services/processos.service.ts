@@ -10,6 +10,8 @@ import { ProcessoResponse } from '../models/processoresponse';
 export class ProcessosService {
   
   baseUrl = 'http://localhost:8080/api';
+  
+  urlApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 
   constructor(
     private http: HttpClient
@@ -48,17 +50,14 @@ export class ProcessosService {
   deletar(id: any): Observable<Processo> {
     return this.http.delete<Processo>(`${this.baseUrl}/processos/${id}`);
   }
-  /*
-  download(id: number): Observable<Blob> {
-    return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob' });
-  }*/
-  
+
   download(id: any): Observable<HttpResponse<Blob>> {
     return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob', observe: 'response' });
   }
   
-  download2(id: number) {    
-    return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob' });
+  getMunicipios(uf: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.urlApi}/${uf}/distritos`);
   }
+  
   
 }

@@ -14,6 +14,8 @@ export class ProcessosUpdateComponent implements OnInit {
 
   ufs: string[] = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
 
+  municipios: string[] = [];
+  
   processo: Processo;
   processoForm: FormGroup;
 
@@ -32,6 +34,12 @@ export class ProcessosUpdateComponent implements OnInit {
       municipio: new FormControl(null, Validators.required),
       uf: new FormControl(null, Validators.required),
       documentoPath: new FormControl(null)
+    });
+    
+    this.processoForm.get('uf')?.valueChanges.subscribe(uf => {
+      if (uf) {
+        this.getMunicipios(uf);
+      }
     });
     
     const id = this.route.snapshot.paramMap.get('id');
@@ -81,6 +89,12 @@ export class ProcessosUpdateComponent implements OnInit {
   get npu() { return this.processoForm.get('npu'); }
   get municipio() { return this.processoForm.get('municipio'); }
   get uf() { return this.processoForm.get('uf'); }
+  
+  getMunicipios(uf: string): void {
+    this.service.getMunicipios(uf).subscribe(data => {
+      this.municipios = data.map(distrito => distrito.nome);
+    });
+  }
   
 }
 
