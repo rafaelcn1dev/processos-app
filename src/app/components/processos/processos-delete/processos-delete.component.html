@@ -1,16 +1,12 @@
 <div class="container mat-elevation-z8">
-    <form [formGroup]="processoForm" (ngSubmit)="atualizar()">
+    <form [formGroup]="processoForm" (ngSubmit)="deletar()">
         <h1>Cadastrar Processo</h1>
 
         <p>
             <mat-form-field class="fullWidth" appearance="fill">
                 <mat-label>NPU</mat-label>
-                <input formControlName="npu" required matInput placeholder="1111111-11.1111.1.11.1111"
-                    mask="0000000-00.0000.0.00.0000" maxlength="25" [dropSpecialCharacters]="false">
+                <input formControlName="npu" matInput>
                 <mat-icon matSuffix>123</mat-icon>
-                <mat-error *ngIf="processoForm.controls['npu'].hasError('invalidNpu')">
-                    Formato inválido. Use o formato 1111111-11.1111.1.11.1111
-                </mat-error>
             </mat-form-field>
         </p>
         <p>
@@ -30,7 +26,7 @@
         </p>
 
 
-        <button [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Atualizar</button>
+        <button [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Deletar</button>
         <button routerLink="../../" type="button" class="fullWidth" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>

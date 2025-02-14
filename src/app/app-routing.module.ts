@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProcessosListComponent } from './components/processos/processos-list/processos-list.component';
 import { ProcessosCreateComponent } from './components/processos/processos-create/processos-create.component';
 import { ProcessosUpdateComponent } from './components/processos/processos-update/processos-update.component';
+import { ProcessosDeleteComponent } from './components/processos/processos-delete/processos-delete.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'processos', component: ProcessosListComponent },
       { path: 'processos/create', component: ProcessosCreateComponent },
-      { path: 'processos/update/:id', component: ProcessosUpdateComponent }
+      { path: 'processos/update/:id', component: ProcessosUpdateComponent },
+      { path: 'processos/delete/:id', component: ProcessosDeleteComponent }
     ]
   }
 ];

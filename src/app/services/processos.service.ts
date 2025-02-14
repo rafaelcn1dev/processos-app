@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Processo } from '../models/processo';
 import { Observable } from 'rxjs';
@@ -43,6 +43,22 @@ export class ProcessosService {
       formData.append('documentoPath', processo.documentoPath);
     }
     return this.http.put<Processo>(`${this.baseUrl}/processos/${processo.id}`, formData);
+  }
+  
+  deletar(id: any): Observable<Processo> {
+    return this.http.delete<Processo>(`${this.baseUrl}/processos/${id}`);
+  }
+  /*
+  download(id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob' });
+  }*/
+  
+  download(id: any): Observable<HttpResponse<Blob>> {
+    return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob', observe: 'response' });
+  }
+  
+  download2(id: number) {    
+    return this.http.get(`${this.baseUrl}/processos/download/${id}`, { responseType: 'blob' });
   }
   
 }

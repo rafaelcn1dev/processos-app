@@ -6,11 +6,11 @@ import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-processos-update',
-  templateUrl: './processos-update.component.html',
-  styleUrls: ['./processos-update.component.css']
+  selector: 'app-processos-delete',
+  templateUrl: './processos-delete.component.html',
+  styleUrls: ['./processos-delete.component.css']
 })
-export class ProcessosUpdateComponent implements OnInit {
+export class ProcessosDeleteComponent implements OnInit {
 
   processo: Processo;
   processoForm: FormGroup;
@@ -24,13 +24,18 @@ export class ProcessosUpdateComponent implements OnInit {
 
   ngOnInit(): void {
     
+    
+    
     this.processoForm = new FormGroup({
       id: new FormControl(null),
-      npu: new FormControl(null, [Validators.required, npuValidator()]),
-      municipio: new FormControl(null, Validators.required),
-      uf: new FormControl(null, Validators.required),
-      documentoPath: new FormControl(null)
+      npu: new FormControl(null),
+      municipio: new FormControl(null),
+      uf: new FormControl(null)
     });
+    
+    this.processoForm.get('npu')?.disable();
+    this.processoForm.get('municipio')?.disable();
+    this.processoForm.get('uf')?.disable();
     
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -39,13 +44,13 @@ export class ProcessosUpdateComponent implements OnInit {
     }
   }
 
-  atualizar(): void {
+  deletar(): void {
     if (this.processoForm.valid) {
       const processo: Processo = this.processoForm.value;
-      this.service.atualizar(processo).subscribe({
+      this.service.deletar(processo.id).subscribe({
         next: () => {
-          this.toastr.success('Processo atualizado com sucesso!', 'Sucesso');
-          this.router.navigate(['processos']);
+          console.log('Redirecionando para a rota processos'); // Adicione este log para depuração
+          this.router.navigate(['/processos']);
         },
         error: (ex) => {
           console.error(ex);
@@ -60,6 +65,18 @@ export class ProcessosUpdateComponent implements OnInit {
       });
     }
   }
+  /*deletar(): void {
+    const processo: Processo = this.processoForm.value;
+    console.log("Deletado");
+    console.log(processo.id)
+    this.service.deletar(processo.id).subscribe(() => {
+      this.toastr.success('Processo deletado com sucesso!', 'Sucesso');
+      this.router.navigate(['/processos']);   
+    });
+    
+    
+  }*/
+  
   
   getProcessoById(id: string): void {
     this.service.getProcessoById(id).subscribe(resposta => {
@@ -67,26 +84,8 @@ export class ProcessosUpdateComponent implements OnInit {
     });
   }
 
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      const file = input.files[0];
-      this.processoForm.patchValue({ documentoPath: file });
-      console.log('Arquivo selecionado:', file);
-    }
-  }
-
   get npu() { return this.processoForm.get('npu'); }
   get municipio() { return this.processoForm.get('municipio'); }
   get uf() { return this.processoForm.get('uf'); }
   
-}
-
-export function npuValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const valid = /^[0-9]{7}-[0-9]{2}\.[0-9]{4}\.[0-9]\.[0-9]{2}\.[0-9]{4}$/.test(control.value);
-    return valid ? null : { invalidNpu: true };
-  };
-} {
-
 }

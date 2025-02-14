@@ -1,5 +1,5 @@
 <div class="container mat-elevation-z8">
-    <form [formGroup]="processoForm" (ngSubmit)="create()">
+    <form [formGroup]="processoForm">
         <h1>Cadastrar Processo</h1>
 
         <p>
@@ -38,7 +38,7 @@
         </p>
 
 
-        <button [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Cadastrar</button>
+        <button (click)="create()" [disabled]="!processoForm.valid" class="fullWidth" mat-raised-button color="primary">Cadastrar</button>
         <button routerLink="../" type="button" class="fullWidth" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>

@@ -35,7 +35,7 @@ import { ProcessosCreateComponent } from './components/processos/processos-creat
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ProcessosUpdateComponent } from './components/processos/processos-update/processos-update.component';
-import { ProcessosDeleteComponent } from './components/processos-delete/processos-delete.component';
+import { ProcessosDeleteComponent } from './components/processos/processos-delete/processos-delete.component';
 
 @NgModule({
   declarations: [

@@ -38,7 +38,7 @@ export class ProcessosCreateComponent implements OnInit {
       this.service.create(processo).subscribe({
         next: () => {
           this.toastr.success('Processo criado com sucesso!', 'Sucesso');
-          this.router.navigate(['/processos']);
+          this.router.navigate(['processos']);
         },
         error: (ex) => {
           console.error(ex);
