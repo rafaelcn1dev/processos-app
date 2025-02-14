@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: processos-app
+    env: static
+    staticPublishPath: dist/seu-projeto-angular

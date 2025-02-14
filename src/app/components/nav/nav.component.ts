@@ -14,9 +14,7 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.router.navigate(['home']);
-    //this.router.navigate(['processos/create']); // Apenas para ir implementando a tela de listar processos
-    this.router.navigate(['processos']); // Apenas para ir implementando a tela de listar processos
+    this.router.navigate(['home']);
   }
 
 }

@@ -9,7 +9,8 @@ import { ProcessoResponse } from '../models/processoresponse';
 })
 export class ProcessosService {
   
-  baseUrl = 'http://localhost:8080/api';
+  //baseUrl = 'http://localhost:8080/api';
+  baseUrl = 'https://processos-83xv.onrender.com/api';
   
   urlApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
 
