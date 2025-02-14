@@ -13,21 +13,21 @@
                 </mat-error>
             </mat-form-field>
         </p>
-        <p>
-            <mat-form-field class="fullWidth" appearance="fill">
-                <mat-label>Municipio</mat-label>
-                <mat-select formControlName="municipio" placeholder="Municipio">
-                    <mat-option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</mat-option>
-                </mat-select>
-                <mat-icon matSuffix>location_city</mat-icon>
-            </mat-form-field>
-        </p>
 
         <p>
             <mat-form-field class="fullWidth" appearance="fill">
                 <mat-label>UF</mat-label>
                 <mat-select formControlName="uf" placeholder="UF">
                     <mat-option *ngFor="let uf of ufs" [value]="uf">{{ uf }}</mat-option>
+                </mat-select>
+                <mat-icon matSuffix>location_city</mat-icon>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="fullWidth" appearance="fill">
+                <mat-label>Municipio</mat-label>
+                <mat-select formControlName="municipio" placeholder="Municipio">
+                    <mat-option *ngFor="let municipio of municipios" [value]="municipio">{{ municipio }}</mat-option>
                 </mat-select>
                 <mat-icon matSuffix>location_city</mat-icon>
             </mat-form-field>
