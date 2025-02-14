@@ -12,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProcessosUpdateComponent implements OnInit {
 
+  ufs: string[] = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+
   processo: Processo;
   processoForm: FormGroup;
 

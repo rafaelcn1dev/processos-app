@@ -24,7 +24,9 @@
         <p>
             <mat-form-field class="fullWidth" appearance="fill">
                 <mat-label>UF</mat-label>
-                <input formControlName="uf" matInput placeholder="UF">
+                <mat-select formControlName="uf" placeholder="UF">
+                    <mat-option *ngFor="let uf of ufs" [value]="uf">{{ uf }}</mat-option>
+                </mat-select>
                 <mat-icon matSuffix>location_city</mat-icon>
             </mat-form-field>
         </p>
